@@ -1,0 +1,11 @@
+
+services:
+  scraper:
+    build:
+      context: .
+      dockerfile: ./scrapers/Dockerfile
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./scrapers:/scrapers
+    command: sh -c "cd /scrapers && python3 -u main.py"
